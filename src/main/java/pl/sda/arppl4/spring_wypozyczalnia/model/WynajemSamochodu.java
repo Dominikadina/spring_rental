@@ -1,13 +1,8 @@
 package pl.sda.arppl4.spring_wypozyczalnia.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,8 +12,19 @@ import java.time.LocalDateTime;
 public class WynajemSamochodu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-private String imieINazwisko;
-private LocalDateTime dataWynajmu;
-private LocalDateTime dataZwrotu;
-private Double cenaNajmu;
+    private Long id;
+
+    private String imie;
+    private String nazwisko;
+    private LocalDateTime dataWynajmu;
+    private LocalDateTime dataZwrotu;
+    private Double cenaNajmu;
+
+
+    @ManyToOne()
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Samochod samochod;
+
+
 }

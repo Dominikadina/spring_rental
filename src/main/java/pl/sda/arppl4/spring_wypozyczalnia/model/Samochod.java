@@ -2,10 +2,12 @@ package pl.sda.arppl4.spring_wypozyczalnia.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @Entity
@@ -26,4 +28,11 @@ public class Samochod {
     @Enumerated(EnumType.STRING)
     private TypSkrzyni typSkrzyni;
     private Double pojemnoscSilnika;
+
+
+    @OneToMany(mappedBy = "samochod", fetch = FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
+    private Set<WynajemSamochodu> wynajemSamochodu;
+
+
 }
