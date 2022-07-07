@@ -22,7 +22,7 @@ public class Samochod {
     private LocalDate dataProdukcji;
     @Enumerated(EnumType.STRING)
     private TypNadwozia typNadwozia;
-    private int ilośćMiejsc;
+    private Integer ilośćMiejsc;
     @Enumerated(EnumType.STRING)
     private TypSkrzyni typSkrzyni;
     private Double pojemnoscSilnika;

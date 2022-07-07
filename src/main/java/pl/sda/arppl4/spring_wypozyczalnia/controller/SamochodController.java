@@ -19,13 +19,24 @@ public class SamochodController {
     public List<Samochod> getAllCars() {
         log.info("Wywolano liste samochodow");
         List<Samochod> list = carService.getAllCars();
+        return list;
     }
 
     @PostMapping("/add")
-            public void addCar(@RequestBody Samochod samochod){
+    public void addCar(@RequestBody Samochod samochod) {
+        log.info("Wywolano metode dodania samochodu:" + samochod);
+        carService.addCar(samochod);
+    }
 
+    @PatchMapping("/update")
+    public void updateCar(@RequestBody Samochod samochod) {
+        log.info("Wywolao aktualizacje samochodu:" + samochod);
+        carService.updateCar(samochod);
+    }
 
-    log.info("Wywolano metode dodania samochodu:" + samochod);
-    carService.addCar(samochod);
-}
+    @DeleteMapping("/delete/{identifier}")
+    public void deleteCar(@PathVariable(name = "identifier") Long identyfikator) {
+        log.info("Wywolao usineicie samochodu: " + identyfikator);
+        carService.deleteById(identyfikator);
+    }
 }
