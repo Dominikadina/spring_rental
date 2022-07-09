@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import pl.sda.arppl4.spring_wypozyczalnia.model.dto.CarDTO;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -36,4 +37,16 @@ public class Samochod {
     @JsonManagedReference
     private Set<WynajemSamochodu> wynajemSamochodu;
 
+    public CarDTO mapToCarDTO() {
+        return new CarDTO(
+                id,
+                nazwa,
+                marka,
+                dataProdukcji,
+                typNadwozia,
+                ilośćMiejsc,
+                typSkrzyni,
+                pojemnoscSilnika
+        );
+    }
 }

@@ -30,5 +30,9 @@ public class WynajemSamochodu {
     @JsonBackReference
     private Samochod samochod;
 
-
+    public WynajemSamochodu(String imie, String nazwisko, Double cenaNajmu) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.cenaNajmu = cenaNajmu;
+    }
 }
