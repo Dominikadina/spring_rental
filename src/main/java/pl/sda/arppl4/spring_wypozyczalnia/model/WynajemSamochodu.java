@@ -1,6 +1,8 @@
 package pl.sda.arppl4.spring_wypozyczalnia.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,6 +18,7 @@ public class WynajemSamochodu {
 
     private String imie;
     private String nazwisko;
+    @CreationTimestamp
     private LocalDateTime dataWynajmu;
     private LocalDateTime dataZwrotu;
     private Double cenaNajmu;
@@ -24,6 +27,7 @@ public class WynajemSamochodu {
     @ManyToOne()
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonBackReference
     private Samochod samochod;
 
 

@@ -1,5 +1,6 @@
 package pl.sda.arppl4.spring_wypozyczalnia.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,7 +33,7 @@ public class Samochod {
 
     @OneToMany(mappedBy = "samochod", fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude
+    @JsonManagedReference
     private Set<WynajemSamochodu> wynajemSamochodu;
-
 
 }
